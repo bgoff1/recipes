@@ -8,7 +8,8 @@ export class RecipeService {
   private recipes = [];
 
   constructor() {
-    this.recipes = AppConfig.getRecipeMappings();
+    const appConfig = new AppConfig();
+    this.recipes = appConfig.recipes;
   }
 
   getRecipes() {
