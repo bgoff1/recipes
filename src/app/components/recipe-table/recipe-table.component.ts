@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
+import { Recipe } from 'src/app/models/recipe.model';
 
 @Component({
   selector: 'recipe-table',
@@ -7,7 +8,7 @@ import { RecipeService } from '../../services/recipe.service';
   styleUrls: ['./recipe-table.component.scss']
 })
 export class RecipeTableComponent implements OnInit {
-  recipes = [];
+  recipes: Recipe[] = [];
 
   constructor(private recipeService: RecipeService) { }
 
@@ -17,7 +18,7 @@ export class RecipeTableComponent implements OnInit {
     }
   }
 
-  navigate(item) {
+  navigate(item: Recipe) {
     window.open(`/recipe/assets/${item.location}`);
     // this.router.navigateByUrl(`/assets/${item.location}`);
   }
