@@ -1,7 +1,8 @@
+import recipes from './recipe-names.json';
+
 export class AppConfig {
     recipes: Recipe[] = [];
     constructor() {
-        const recipes = require('./recipe-names.json') as string[];
         for (const name of recipes) {
             this.addRecipe(name);
         }
