@@ -1,0 +1,6 @@
+<div class="flex-container">
+    <span class="flex-item" *ngFor="let item of recipes; let i = index">
+        <span class="flex-item-text" (click)="navigate(item)">{{item.name}}</span>
+        <span *ngIf="index + 1 > recipes.length">recip2</span>
+    </span>
+</div>

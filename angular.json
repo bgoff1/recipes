@@ -69,6 +69,10 @@
           "options": {
             "browserTarget": "recipe:build"
           },
+          "assets": [
+            "src/favicon.ico",
+            "src/assets"
+          ],
           "configurations": {
             "production": {
               "browserTarget": "recipe:build:production"

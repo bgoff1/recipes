@@ -1,0 +1,23 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 90vw;
+    padding-left: 5vw;
+}
+
+.flex-item {
+    border-radius: 25px;
+    background-color: #259bbe;
+    height: 50px;
+    text-align: center;
+    min-width: 40px;
+    margin: 5px;
+}
+
+.flex-item-text {
+    position: relative;
+    top: 15px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
