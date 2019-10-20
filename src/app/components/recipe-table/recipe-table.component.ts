@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'recipe-table',
@@ -10,18 +9,16 @@ import { Router } from '@angular/router';
 export class RecipeTableComponent implements OnInit {
   recipes = [];
 
-  constructor(private recipeService: RecipeService, private router: Router) { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    for (let i = 0; i < 25; i++) {
-      for (const item of this.recipeService.getRecipes()) {
-        this.recipes.push(item);
-      }
+    for (const item of this.recipeService.getRecipes()) {
+      this.recipes.push(item);
     }
   }
 
   navigate(item) {
-    window.open(`/assets/${item.location}`);
+    window.open(`/recipe/assets/${item.location}`);
     // this.router.navigateByUrl(`/assets/${item.location}`);
   }
 
