@@ -10,7 +10,7 @@ export class Recipe implements RecipeMapping {
     }
 }
 
-interface RecipeMapping {
+export interface RecipeMapping {
     name: string;
     location: string;
 }

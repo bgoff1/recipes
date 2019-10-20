@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
-import { Recipe } from 'src/app/models/recipe.model';
+import { Recipe, RecipeMapping } from 'src/app/models/recipe.model';
 
 @Component({
   selector: 'recipe-table',
@@ -18,7 +18,7 @@ export class RecipeTableComponent implements OnInit {
     }
   }
 
-  navigate(item: Recipe) {
+  navigate(item: RecipeMapping) {
     window.open(`/recipe/assets/${item.location}`);
     // this.router.navigateByUrl(`/assets/${item.location}`);
   }
