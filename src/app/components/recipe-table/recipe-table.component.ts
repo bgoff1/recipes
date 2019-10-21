@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
-import { Recipe, RecipeMapping } from 'src/app/models/recipe.model';
+import { Recipe } from 'src/app/models/recipe.model';
 
 @Component({
   selector: 'recipe-table',
@@ -8,19 +8,21 @@ import { Recipe, RecipeMapping } from 'src/app/models/recipe.model';
   styleUrls: ['./recipe-table.component.scss']
 })
 export class RecipeTableComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit() {
-    for (const item of this.recipeService.getRecipes()) {
-      this.recipes.push(item);
-    }
+    this.recipes = this.recipeService
+      .getRecipes()
+      .sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  navigate(item: RecipeMapping) {
-    window.open(`/recipe/assets/${item.location}`);
-    // this.router.navigateByUrl(`/assets/${item.location}`);
+  navigate(item: Recipe) {
+    window.open(
+      window.location.href === 'http://localhost:4200/'
+        ? `/assets/${item.location}`
+        : `/recipe/assets/${item.location}`
+    );
   }
-
 }

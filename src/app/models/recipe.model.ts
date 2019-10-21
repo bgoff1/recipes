@@ -1,16 +1,34 @@
 export class Recipe implements RecipeMapping {
-    name: string;
-    location: string;
-    tags: string[];
-    constructor(name: string) {
-        this.name = name;
-        const lowerName = name.toLocaleLowerCase();
-        this.location = lowerName.substring(0, name.search(/\s-\s/)).replace(/\s/g, '-') + '.png';
-        this.tags = lowerName.substring(name.search(/\s-\s/) + ' - '.length).split(', ');
+  name: string;
+  private lowerName: string;
+  location: string;
+  tags: string[];
+  constructor(name: string) {
+    this.name = name;
+    this.lowerName = name.toLocaleLowerCase();
+    this.location = this.lowerName.includes(' - ')
+      ? this.lowerName.substring(0, name.search(/\s-\s/)).replace(/\s/g, '-') +
+        '.png'
+      : this.lowerName.replace(/\s/g, '-') + '.png';
+    this.tags = [];
+    this.addTag('chicken');
+    this.addTag('steak');
+    this.addTag('dutch oven');
+    this.addTag('low carb');
+    this.addTag('casserole');
+    this.addTag('skillet');
+    this.addTag('crock pot');
+    this.addTag('pasta');
+  }
+
+  addTag(potentialTag: string): void {
+    if (this.lowerName.includes(potentialTag)) {
+      this.tags.push(potentialTag);
     }
+  }
 }
 
 export interface RecipeMapping {
-    name: string;
-    location: string;
+  name: string;
+  location: string;
 }
