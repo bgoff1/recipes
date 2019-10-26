@@ -1,3 +1,5 @@
+import veggieNames from '../../config/veggie-names.json';
+
 export class Recipe implements RecipeMapping {
   name: string;
   private lowerName: string;
@@ -19,11 +21,18 @@ export class Recipe implements RecipeMapping {
     this.addTag('skillet');
     this.addTag('crock pot');
     this.addTag('pasta');
+    this.addVeggieTag();
   }
 
   addTag(potentialTag: string): void {
     if (this.lowerName.includes(potentialTag)) {
       this.tags.push(potentialTag);
+    }
+  }
+
+  addVeggieTag() {
+    if (this.lowerName.split(' ').some(word => veggieNames.includes(word))) {
+      this.tags.push('veggie');
     }
   }
 }
