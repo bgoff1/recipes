@@ -1,0 +1,24 @@
+<div
+  class="navbar-item has-dropdown is-hoverable"
+  [ngClass]="{ 'is-active': sticky }"
+>
+  <a class="navbar-link" (click)="flipSticky()">
+    {{ title }}
+  </a>
+
+  <div
+    class="navbar-dropdown"
+    *ngIf="checkboxes.length"
+    [ngClass]="{ 'navbar-menu': !sticky }"
+  >
+    <div *ngFor="let checkbox of checkboxes">
+      <div class="navbar-item" (click)="toggleChecked($event, checkbox)">
+        <label class="checkbox">
+          <input type="checkbox" [checked]="checkbox.checked" />
+          <div class="inline-block">{{ checkbox.name | titlecase }}</div>
+        </label>
+      </div>
+      <hr class="navbar-divider" />
+    </div>
+  </div>
+</div>

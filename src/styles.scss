@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #333333;
-    margin: 0;
+@import '../node_modules/bulmaswatch/slate/bulmaswatch',
+  '../node_modules/bulma/css/bulma.min.css';
+.inline-block {
+  display: inline-block;
+}
+.navbar-burger {
+  background-color: $navbar-background-color;
+  height: 4rem !important;
 }

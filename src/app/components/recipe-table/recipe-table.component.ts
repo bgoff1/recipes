@@ -13,9 +13,10 @@ export class RecipeTableComponent implements OnInit {
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit() {
-    this.recipes = this.recipeService
-      .getRecipes()
-      .sort((a, b) => a.name.localeCompare(b.name));
+    this.recipeService.recipeChange.subscribe(
+      recipes =>
+        (this.recipes = recipes.sort((a, b) => a.name.localeCompare(b.name)))
+    );
   }
 
   navigate(item: Recipe) {

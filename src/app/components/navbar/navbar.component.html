@@ -1,0 +1,30 @@
+<div class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <span class="pl-1">Recipes</span>
+    </a>
+
+    <button
+      [ngClass]="{ 'navbar-burger': true, burger: true, 'is-active': active }"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="header"
+      (click)="this.active = !this.active"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div id="header" [ngClass]="{ 'navbar-menu': true, 'is-active': active }">
+    <div class="navbar-start jc-sb">
+      <search-filter (search)="handleSearch($event)"></search-filter>
+      <checkbox-filter
+        (filter)="handleTagFilter($event)"
+        [title]="'Recipe Tags'"
+        [names]="tags"
+      ></checkbox-filter>
+      <a class="navbar-item" (click)="resetFilters()">Reset Filters</a>
+    </div>
+  </div>
+</div>

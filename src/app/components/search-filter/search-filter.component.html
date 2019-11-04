@@ -1,0 +1,15 @@
+<div
+  class="navbar-item has-dropdown is-hoverable"
+  [ngClass]="{ 'is-active': searching }"
+>
+  <a class="navbar-link" (click)="flipSearching()">
+    Search Recipe
+  </a>
+
+  <div
+    class="navbar-dropdown"
+    [ngClass]="{ 'navbar-menu': !searching, 'has-text-centered': true }"
+  >
+    <input type="text" [(ngModel)]="searchText" (keyup)="onKeyUp()" />
+  </div>
+</div>

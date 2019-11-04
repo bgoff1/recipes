@@ -1,4 +1,5 @@
 import veggieNames from '../../config/veggie-names.json';
+import tags from '../../config/tags.json';
 
 export class Recipe implements RecipeMapping {
   name: string;
@@ -13,14 +14,9 @@ export class Recipe implements RecipeMapping {
         '.png'
       : this.lowerName.replace(/\s/g, '-') + '.png';
     this.tags = [];
-    this.addTag('chicken');
-    this.addTag('steak');
-    this.addTag('dutch oven');
-    this.addTag('low carb');
-    this.addTag('casserole');
-    this.addTag('skillet');
-    this.addTag('crock pot');
-    this.addTag('pasta');
+    for (const tag of tags) {
+      this.addTag(tag);
+    }
     this.addVeggieTag();
   }
 
