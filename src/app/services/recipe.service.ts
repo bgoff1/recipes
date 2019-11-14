@@ -33,8 +33,9 @@ export class RecipeService {
   filterBySearch() {
     if (this.filters.search) {
       this.filteredRecipes = this.filteredRecipes.filter(recipe => {
-        console.log(recipe.name, this.filters.search);
-        return recipe.name.toLowerCase().includes(this.filters.search);
+        return recipe.name
+          .toLowerCase()
+          .includes(this.filters.search.toLowerCase());
       });
     }
   }
