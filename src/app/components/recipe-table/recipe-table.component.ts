@@ -23,7 +23,7 @@ export class RecipeTableComponent implements OnInit {
     window.open(
       window.location.href === 'http://localhost:4200/'
         ? `/assets/${item.location}`
-        : `/recipe/assets/recipes/${item.location}`
+        : `/recipes/assets/recipes/${item.location}`
     );
   }
 }
